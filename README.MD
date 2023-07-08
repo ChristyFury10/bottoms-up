@@ -12,6 +12,14 @@ Planning seps:
 7. Build capability to add a special and an event
 8. 
 
+Milestones:
+- Connect Models and allow creation of each type
+- Enable search by Day of the week functionality
+- Visually update application
+(stretch goals)
+- connect leafletJS
+- Incoroporate user authentication
+
 ## USER STORIES
 - Users will be able to add/update/delete a bar/restaurant 
 - user will be able to add/update/delete specials, events etc. for each bar/restaurant
