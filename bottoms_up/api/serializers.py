@@ -5,6 +5,7 @@ class BarSerializer(ModelSerializer):
     class Meta:
         model = Bar
         fields = [
+            'id',
             'name',
             'address', 
             'hours'
