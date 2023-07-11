@@ -55,3 +55,20 @@ def getBar(request, pk):
     bar = Bar.objects.get(id=pk)
     serializer =BarSerializer(bar, many=False)
     return Response(serializer.data)
+
+@api_view(['PUT'])
+def updateBar(request, pk):
+    data = request.data
+    bar = Bar.objects.get(id=pk)
+    serializer = BarSerializer(instance=bar, data=data)
+
+    if serializer.is_valid():
+       serializer.save()
+
+    return Response(serializer.data) 
+
+@api_view(['DELETE'])
+def deleteBar(request, pk):
+    bar = Bar.objects.get(id=pk)
+    bar.delete()
+    return Response("Bar Deleted")
