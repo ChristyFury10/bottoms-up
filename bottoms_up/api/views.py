@@ -56,8 +56,20 @@ def getBar(request, pk):
     serializer =BarSerializer(bar, many=False)
     return Response(serializer.data)
 
+@api_view(['POST'])
+def createBar(request):
+    data = request.data
+    bar = Bar.objects.create(
+        name=data['name'],
+        address=data['address'],
+        hours=data['hours']
+    )
+    serializer = BarSerializer(bar, namy=False)
+    return Response(serializer.data)
+
 @api_view(['PUT'])
 def updateBar(request, pk):
+    print("successfully hit route")
     data = request.data
     bar = Bar.objects.get(id=pk)
     serializer = BarSerializer(instance=bar, data=data)

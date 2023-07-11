@@ -3,16 +3,23 @@ import './App.css';
 import Header from './componenets/Header'
 import BarListPage from './pages/BarListPage'
 import BarDetailPage from './pages/BarDetailPage'
+import BarUpdatePage from './pages/BarUpdatePage'
+import { useState } from 'react';
+import BarCreate from './pages/BarCreate';
 
 
 function App() {
   let routes;
+  let [bar, setBar] = useState([])
+  let [bars, setBars] = useState([])
+
 
   routes = (
     <Routes>
-      <Route path="/" exact element={<BarListPage/>}/>
-      <Route path="/bar/:id" element={<BarDetailPage/>}/>
-
+      <Route path="/" exact element={<BarListPage bar={bar} setBar={setBar} bars={bars} setBars={setBars}/>}/>
+      <Route path="/bars/create" exact element={<BarCreate bar={bar} setBar={setBar}/>}/>
+      <Route path="/bars/:id/update" element={<BarUpdatePage bar={bar} setBar={setBar} bars={bars} setBars={setBars}/>}/>
+      <Route path="/bars/:id" element={<BarDetailPage bar={bar} setBar={setBar} bars={bars} setBars={setBars}/>}/>
     </Routes>
   )
 

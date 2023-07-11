@@ -1,9 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import BarItem from '../componenets/BarItem'
 
-const BarListPage = () => {
+const BarListPage = ({bars, setBars}) => {
 
-    let [bars, setbars] = useState([])
 
     useEffect(()=>{
         getBars()
@@ -13,13 +12,14 @@ const BarListPage = () => {
         let response = await fetch('/api/bars')
         let data =  await response.json()
         console.log("data:", data)
-        setbars(data)
+        setBars(data)
 
     }
-
+  
   return (
     <div>
       <div className='bars-list'>
+        
         {bars.map((bar, index) => (
             <BarItem key={index} bar={bar}/>
         ))}
