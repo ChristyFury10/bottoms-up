@@ -10,11 +10,18 @@ const BarItem = ({bar}) => {
   return (
     <>
     
+
+    <li class="collection-item avatar">
     <Link to={`/bars/${id}`}>
-      <div className='bar-item'>
-        {bar.name}
-      </div>
+      <img src="" alt="" className="circle"/>
+      <span class="title">{bar.name}</span>
+      <p>{bar.address}<br/>
+         Open: {bar.hours}
+      </p>
+      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
     </Link>
+    </li>
+    
     </>
   )
 }

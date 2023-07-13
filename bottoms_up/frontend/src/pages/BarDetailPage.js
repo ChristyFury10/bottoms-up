@@ -2,6 +2,7 @@ import React, {useEffect, useState}from 'react'
 import { useParams } from 'react-router-dom';
 import {Link} from 'react-router-dom'
 import specialItem from '../componenets/specialItem';
+import Header from '../componenets/Header';
 
 const BarDetailPage = ({bar, setBar, index}) => {
 
@@ -45,6 +46,7 @@ const BarDetailPage = ({bar, setBar, index}) => {
 
   return (
     <div>
+      <Header/>
       hello
       <h3>
         Name: {bar.name}

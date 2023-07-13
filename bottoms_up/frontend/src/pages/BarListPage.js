@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import BarItem from '../componenets/BarItem'
 import './BarListPage.css'
+import Header from '../componenets/Header'
 
 const BarListPage = ({bars, setBars}) => {
 
@@ -18,12 +19,14 @@ const BarListPage = ({bars, setBars}) => {
   
   return (
     <div>
+      <Header/>
       <div id='bars-list'>
-        hello
-      <div id='list-label'>Some Local Bars</div>
+      <div id='list-label'>Some Local Baltimore Bars</div>
         {bars.map((bar, index) => (
           <div key={index} className='bar-item'>
+            <ul class="collection">
             <BarItem  bar={bar}/>
+            </ul>
             </div>
         ))}
       </div>

@@ -1,6 +1,7 @@
 import React from 'react'
 import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import Header from '../componenets/Header';
 
 const BarUpdatePage = ({bar, setBar}) => {
 
@@ -71,6 +72,7 @@ const BarUpdatePage = ({bar, setBar}) => {
 
   return (
     <div>
+        <Header/>
         <form onSubmit={handleSubmit}>
         Name:<input type="text" value={nameState} name="name" placeholder="name" onChange={(e) => onChangeHandler(e, setNameState)}></input>
             <br/>
