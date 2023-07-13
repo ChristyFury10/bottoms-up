@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import BarItem from '../componenets/BarItem'
+import './BarListPage.css'
 
 const BarListPage = ({bars, setBars}) => {
 
@@ -11,17 +12,19 @@ const BarListPage = ({bars, setBars}) => {
     let getBars = async () => {
         let response = await fetch('/api/bars')
         let data =  await response.json()
-        console.log("data:", data)
         setBars(data)
 
     }
   
   return (
     <div>
-      <div className='bars-list'>
-        
+      <div id='bars-list'>
+        hello
+      <div id='list-label'>Some Local Bars</div>
         {bars.map((bar, index) => (
-            <BarItem key={index} bar={bar}/>
+          <div key={index} className='bar-item'>
+            <BarItem  bar={bar}/>
+            </div>
         ))}
       </div>
     </div>

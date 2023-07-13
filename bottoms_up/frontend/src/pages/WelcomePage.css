@@ -1,0 +1,11 @@
+#welcome{
+    text-align: center;
+}
+#icon{
+    animation: bounceInDown;
+    animation-duration: 3s;
+}
+#cities{
+    animation: fadeInUpBig;
+    animation-duration: 4s;
+}

@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-from .models import Bar
-from .serializers import BarSerializer
+from .models import Bar, Special
+from .serializers import BarSerializer, SpecialSerializer
 # Create your views here.
 
 
@@ -53,8 +53,11 @@ def getBars(request):
 @api_view(['GET'])
 def getBar(request, pk):
     bar = Bar.objects.get(id=pk)
+    # specials = Special.objects.filter(bar = request)
     serializer =BarSerializer(bar, many=False)
+    # specialSerializer = SpecialSerializer(specials, many = True)
     return Response(serializer.data)
+
 
 @api_view(['POST'])
 def createBar(request):
