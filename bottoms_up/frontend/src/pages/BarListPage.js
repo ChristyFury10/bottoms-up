@@ -20,16 +20,21 @@ const BarListPage = ({bars, setBars}) => {
   return (
     <div>
       <Header/>
-      <div id='bars-list'>
-      <div id='list-label'>Some Local Baltimore Bars</div>
-        {bars.map((bar, index) => (
-          <div key={index} className='bar-item'>
-            <ul class="collection">
-            <BarItem  bar={bar}/>
-            </ul>
-            </div>
-        ))}
-      </div>
+      <div className='main-list'>
+          <div div id='bars-list'>
+          <div id='list-label'>Some Local Baltimore Bars</div>
+            {bars.map((bar, index) => (
+              <div key={index} className='bar-item'>
+                <ul class="collection">
+                <BarItem  bar={bar}/>
+                </ul>
+                </div>
+            ))}
+          </div>
+          <div>Map Will Go here</div>
+        </div>
+      <span>Want to add a bar that's not here yet?  </span>
+      <a href = "/#/bars/create"><button>Add Bar</button></a>
     </div>
   )
 }

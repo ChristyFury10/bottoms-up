@@ -8,6 +8,10 @@ urlpatterns = [
     path('bars/<str:pk>/update', views.updateBar, name="update-bar"),
     path('bars/<str:pk>/', views.getBar, name="bar"),
     path('bars/<str:pk>/delete', views.deleteBar, name="delete-bar"),
+    path('bars/<str:pk>/specials/new', views.createSpecial, name="special-create"),
+
+    
+    
 
 
 

@@ -49,7 +49,7 @@ const BarUpdatePage = ({bar, setBar}) => {
 
         await fetch(`http://localhost:8000/api/bars/${id}/update`, options);
         
-        navigate(`/`)
+        navigate(`/bars/${id}`)
     
         
     }
@@ -60,7 +60,7 @@ const BarUpdatePage = ({bar, setBar}) => {
                     'Content-Type' :'application/json'
                 }
             })
-            navigate(`/`)
+            navigate(`/bars`)
         }
 
 

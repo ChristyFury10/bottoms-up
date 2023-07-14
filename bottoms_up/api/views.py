@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from .models import Bar, Special
@@ -39,6 +39,12 @@ def getRoutes(request):
         'method': 'DELETE',
         'body': None,
         'description': 'Deletes and exiting bar'
+        },
+        {
+        'Endpoint': '/bars/id/special/create',
+        'method': 'POST',
+        'body': {'body': ""}, 
+        'description': 'add a special to a bar'
         },
     ]
 
@@ -87,3 +93,19 @@ def deleteBar(request, pk):
     bar = Bar.objects.get(id=pk)
     bar.delete()
     return Response("Bar Deleted")
+
+
+@api_view(['POST'])
+def createSpecial(request, pk):
+    # name = request.data.get("name")
+    # days = request.data.get("days")
+    # details = request.data.get("details")
+    data = request.data
+    bar = Bar.objects.get(pk=pk)
+    special = Special.objects.create(
+        name=data["name"], 
+        days=data["days"], 
+        details=["details"], 
+        bar=bar)
+    serializer = SpecialSerializer(special, many=False)
+    return Response(serializer.data)

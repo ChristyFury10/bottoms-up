@@ -1,7 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Header from '../componenets/Header';
 
 const BarCreate = ({bar, setBar}) => {
 
@@ -9,16 +8,6 @@ const BarCreate = ({bar, setBar}) => {
     const [nameState, setNameState] = useState("");
 	const [hoursState, setHoursState] = useState("");
 	const [addressState, setAddressState] = useState("");
-
-    // let createBar = async () => {
-    //     fetch(`http://localhost:8000/api/bars/create`, {
-    //         method: "POST",
-    //         'headers': {
-    //             'Content-Type' :'application/json'
-    //         },
-    //         body: JSON.stringify(bar)
-    //     })
-    // }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -48,7 +37,6 @@ const BarCreate = ({bar, setBar}) => {
 
   return (
          <div>
-            <Header />
         <form onSubmit={handleSubmit}>
         Name:<input type="text" value={nameState} name="name" placeholder="name" onChange={(e) => onChangeHandler(e, setNameState)}></input>
             <br/>

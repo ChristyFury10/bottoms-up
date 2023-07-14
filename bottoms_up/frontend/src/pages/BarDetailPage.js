@@ -27,27 +27,16 @@ const BarDetailPage = ({bar, setBar, index}) => {
         setSpecials(specialData.specials)
     }
 
-    // let specials = bar.specials[0].name
-    console.log("bar", bar)
-    // console.log("specials", specials)
+    let specialList = specials.map((special, index)=>{
+      return(<div>{special.name}</div>)
+      
+    })
 
-
-  //   return (
-  //   <div>
-  //     hello
-  //     <h3>Name:{bar.name}
-  //           <br/>
-  //           Address:{bar.address}
-  //           <br/>
-  //           Hours:{bar.hours}</h3>
-  //           {specials[0].name}
-  //   </div>
-  // )
 
   return (
     <div>
       <Header/>
-      hello
+
       <h3>
         Name: {bar.name}
         <br />
@@ -55,11 +44,13 @@ const BarDetailPage = ({bar, setBar, index}) => {
         <br />
         Hours: {bar.hours}
       </h3>
-      {specials.length > 0 ? (
+      {/* {specials.length > 0 ? (
         <p>{specials[0].name}</p>
       ) : (
         <p>Loading specials...</p>
-      )}
+      )} */}
+      {specialList}
+     <Link to={`/bars/${id}/specials/new`}><button>Add special</button></Link>
     </div>
   );
 

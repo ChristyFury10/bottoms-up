@@ -3,7 +3,13 @@
 }
 #list-label{
     text-align: center;
+    border: 0px !important
 }
 .bar-item{
     text-align: center;
+    border: 0px !important
+    
+}
+.main-list{
+    display: flex;
 }
