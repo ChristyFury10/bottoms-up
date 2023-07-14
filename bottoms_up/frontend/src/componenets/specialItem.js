@@ -1,9 +1,9 @@
 import React from 'react'
 
-const specialItem = () => {
+const specialItem = ({special}) => {
   return (
     <div>
-      SPECIAL HERE
+      {special.name}
     </div>
   )
 }

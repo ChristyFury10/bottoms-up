@@ -1,7 +1,7 @@
 import React, {useEffect, useState}from 'react'
 import { useParams } from 'react-router-dom';
 import {Link} from 'react-router-dom'
-import specialItem from '../componenets/specialItem';
+import SpecialItem from '../componenets/SpecialItem';
 import Header from '../componenets/Header';
 
 const BarDetailPage = ({bar, setBar, index}) => {
@@ -28,10 +28,10 @@ const BarDetailPage = ({bar, setBar, index}) => {
     }
 
     let specialList = specials.map((special, index)=>{
-      return(<div>{special.name}</div>)
+      return(<SpecialItem special={special}/>)
       
     })
-
+// <div>{special.name}</div>
 
   return (
     <div>
@@ -51,6 +51,8 @@ const BarDetailPage = ({bar, setBar, index}) => {
       )} */}
       {specialList}
      <Link to={`/bars/${id}/specials/new`}><button>Add special</button></Link>
+     <Link to={`/bars/${id}/update`}><button>Update Bar Info</button></Link>
+     <Link to={`/bars`}><button>Back to List</button></Link>
     </div>
   );
 
