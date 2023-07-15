@@ -13,3 +13,4 @@
 .main-list{
     display: flex;
 }
+#map { height: 180px; }

@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Header from '../componenets/Header';
 
 const BarCreate = ({bar, setBar}) => {
 
@@ -27,7 +28,7 @@ const BarCreate = ({bar, setBar}) => {
 
         // setBar(newBar)
         // createBar();
-        navigate('/')
+        navigate('/bars')
 
     }
 
@@ -37,6 +38,8 @@ const BarCreate = ({bar, setBar}) => {
 
   return (
          <div>
+            <Header/>
+            <h5>Enter the information for the new bar/restaurant you would like to add.</h5>
         <form onSubmit={handleSubmit}>
         Name:<input type="text" value={nameState} name="name" placeholder="name" onChange={(e) => onChangeHandler(e, setNameState)}></input>
             <br/>

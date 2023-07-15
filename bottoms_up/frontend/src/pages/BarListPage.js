@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react'
 import BarItem from '../componenets/BarItem'
 import './BarListPage.css'
 import Header from '../componenets/Header'
+import MapComp from '../componenets/MapComp'
+
 
 const BarListPage = ({bars, setBars}) => {
 
@@ -31,7 +33,9 @@ const BarListPage = ({bars, setBars}) => {
                 </div>
             ))}
           </div>
-          <div>Map Will Go here</div>
+          <div>Map Will Go here
+            <MapComp></MapComp>
+          </div>
         </div>
       <span>Want to add a bar that's not here yet?  </span>
       <a href = "/#/bars/create"><button>Add Bar</button></a>

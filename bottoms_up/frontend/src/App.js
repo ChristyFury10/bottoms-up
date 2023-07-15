@@ -10,6 +10,7 @@ import WelcomePage from './pages/WelcomePage';
 import SpecialCreate from './pages/SpecialCreate';
 import SpecialUpdate from './pages/SpecialUpdate';
 import SpecialView from './pages/SpecialView';
+import MapComp from './componenets/MapComp';
 
 
 function App() {

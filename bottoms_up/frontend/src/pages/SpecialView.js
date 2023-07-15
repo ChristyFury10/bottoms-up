@@ -1,7 +1,8 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import specialItem from '../componenets/SpecialItem';
+import Header from '../componenets/Header';
 
 const SpecialView = ({bar, setBar, index}) => {
 
@@ -28,14 +29,14 @@ const SpecialView = ({bar, setBar, index}) => {
     //         }
     // }
 
-    const getBar = async () => {
+    let getBar = async () => {
         try {
-          const barResponse = await fetch(`/api/bars/${bar_id}`);
-          const barData = await barResponse.json();
+          let barResponse = await fetch(`/api/bars/${bar_id}`);
+          let barData = await barResponse.json();
           setBar(barData);
     
           if (barData.specials && barData.specials.length > 0) {
-            const matchedSpecial = barData.specials.find(special => special.id === parseInt(special_id));
+            let matchedSpecial = barData.specials.find(special => special.id === parseInt(special_id));
             if (matchedSpecial) {
               setSpecial(matchedSpecial);
             } else {
@@ -56,11 +57,16 @@ const SpecialView = ({bar, setBar, index}) => {
 
   return (
     <div>
-        Individual special info:
-      <h1>{bar.name}</h1>
-      {/* <h2>{special.name}</h2> */}
-      {/* <p>{specialItem.details}</p> */}
-      {special.name}
+      <Header/>
+      {special.name} at {bar.name} <br/>
+      When?  
+      {special.days} <br/>
+      What?  
+      {special.details} <br/>
+
+
+      <Link to={`/bars/${bar_id}/specials/${special_id}/update`}><button>Update this special</button></Link>
+      <button>Remove this special</button>
     </div>
   )
 }

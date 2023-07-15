@@ -53,7 +53,7 @@ def getRoutes(request):
         'description': 'return a single bar special'
         },
         {
-        'Endpoint': '/bars/:bar_id/specials/special_id/update',
+        'Endpoint': '/bars/bar_id/specials/special_id/update',
         'method': 'PUT',
         'body': {'body': ""},
         'description': 'Creates an existing special with data sent in post request'
@@ -90,7 +90,6 @@ def createBar(request):
 
 @api_view(['PUT'])
 def updateBar(request, pk):
-    print("successfully hit route")
     data = request.data
     bar = Bar.objects.get(id=pk)
     serializer = BarSerializer(instance=bar, data=data)
@@ -123,9 +122,9 @@ def createSpecial(request, pk):
     return Response(serializer.data)
 
 @api_view(['PUT'])
-def updateSpecial(request, pk):
+def updateSpecial(request, special_id):
     data = request.data
-    special = Special.objects.get(id=pk)
+    special = Special.objects.get(id=special_id)
     serializer = SpecialSerializer(instance=special, data=data)
 
     if serializer.is_valid():
