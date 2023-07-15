@@ -10,6 +10,8 @@ const BarDetailPage = ({bar, setBar, index}) => {
     console.log(id)
 
     let[specials, setSpecials] = useState([])
+    let[special, setSpecial] = useState([])
+
     console.log("specialState",specials)
 
     useEffect(() =>{
@@ -28,7 +30,7 @@ const BarDetailPage = ({bar, setBar, index}) => {
     }
 
     let specialList = specials.map((special, index)=>{
-      return(<SpecialItem special={special}/>)
+      return(<SpecialItem special={special} bar={bar}/>)
       
     })
 // <div>{special.name}</div>

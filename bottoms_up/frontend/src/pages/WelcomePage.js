@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const WelcomePage = () => {
   return (
     <div id='welcome'>
-      <div id='icon'>ICON</div>
+      <div id='icon'><img id="icon-img" src="https://i.imgur.com/ir32k2T.png"/></div>
       <div id="cities" >
         Select a city below to find happy hours and event sin your area!
         <br/>

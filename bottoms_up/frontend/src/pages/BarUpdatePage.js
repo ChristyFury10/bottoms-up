@@ -2,6 +2,7 @@ import React from 'react'
 import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Header from '../componenets/Header';
+import SpecialItem from '../componenets/SpecialItem';
 
 const BarUpdatePage = ({bar, setBar}) => {
 
@@ -10,9 +11,11 @@ const BarUpdatePage = ({bar, setBar}) => {
     let {id} = useParams();
     console.log(id)
 
-    const [nameState, setNameState] = useState("");
-	const [hoursState, setHoursState] = useState("");
-	const [addressState, setAddressState] = useState("");
+    let [nameState, setNameState] = useState("");
+	let [hoursState, setHoursState] = useState("");
+	let [addressState, setAddressState] = useState("");
+	let [specials, setSpecials] = useState([])
+
 
     useEffect(() =>{
         getBar()
@@ -24,10 +27,11 @@ const BarUpdatePage = ({bar, setBar}) => {
         let response = await fetch(`/api/bars/${id}`)
         let data = await response.json()
         setBar(data)
-        const{name, address, hours} = data
+        const{name, address, hours, specials} = data
         setAddressState(address)
         setNameState(name)
         setHoursState(hours)
+        setSpecials(specials)
     }
 
     let handleSubmit = async (e) => {
@@ -68,7 +72,10 @@ const BarUpdatePage = ({bar, setBar}) => {
         setValue(e.target.value)
     }
 
-
+    let specialList = specials.map((special, index)=>{
+      return(<SpecialItem special={special}/>)
+      
+    })
 
   return (
     <div>
@@ -80,9 +87,41 @@ const BarUpdatePage = ({bar, setBar}) => {
             <br/>
         Hours:<input type="text" value={hoursState} name="name" placeholder="name" onChange={(e) => onChangeHandler(e, setHoursState)}></input>
         <br/>
+        Specials: {specialList}
+        {/* <label>
+        <input type="checkbox" name="monday"/>
+        <span>Monday</span>
+        </label>
+        <label>
+        <input type="checkbox" name="monday"/>
+        <span>Monday</span>
+        </label>
+        <label>
+        <input type="checkbox" name="monday"/>
+        <span>Monday</span>
+        </label>
+        <label>
+        <input type="checkbox" name="monday"/>
+        <span>Monday</span>
+        </label>
+        <label>
+        <input type="checkbox" name="monday"/>
+        <span>Monday</span>
+        </label>
+        <label>
+        <input type="checkbox" name="monday"/>
+        <span>Monday</span>
+        </label>
+        <label>
+        <input type="checkbox" name="monday"/>
+        <span>Monday</span>
+        </label> */}
+        <br/>
+        
         <input type="submit"></input>
         <button onClick={deleteBar}>Delete</button>
 
+        <div></div>
         </form>
       
     </div>

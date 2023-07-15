@@ -7,10 +7,17 @@ body{
 #icon{
     animation: bounceInDown;
     animation-duration: 3s;
-    margin-top: 300px
+    margin-top: 100px;
+    
+}
+#icon-img{
+    width: 250px;
+    margin-top: -25px;
+
 }
 #cities{
     animation: fadeInUpBig;
     animation-duration: 4s;
     animation-delay: 1s;
+    margin-top: -50px;
 }

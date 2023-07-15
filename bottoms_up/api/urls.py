@@ -9,6 +9,10 @@ urlpatterns = [
     path('bars/<str:pk>/', views.getBar, name="bar"),
     path('bars/<str:pk>/delete', views.deleteBar, name="delete-bar"),
     path('bars/<str:pk>/specials/new', views.createSpecial, name="special-create"),
+    path('bars/<int:bar_pk>/specials/<int:special_pk>', views.viewSpecial, name="special-view"),
+    path('bars/<int:bar_pk>/specials/<int:special_pk>/update', views.updateSpecial, name="special-update"),
+
+
 
     
     
