@@ -11,7 +11,7 @@ const SpecialCreate = ({bar, setBar}) => {
   console.log(id)
 
   const navigate = useNavigate();
-  let[specials, setSpecials] = useState([])
+  let[specials, setSpecials] = useState([]);
   const [nameState, setNameState] = useState("");
 	const [daysState, setDaysState] = useState("");
 	const [detailsState, setDetailsState] = useState("");
@@ -25,14 +25,15 @@ let getBar = async () => {
   let response = await fetch(`/api/bars/${id}`)
   let data = await response.json()
   setBar(data)
-  let barSpecials = await fetch(`/api/bars/${id}`)
-  let specialData = await barSpecials.json()
-  setSpecials(specialData.specials)
+  // let barSpecials = await fetch(`/api/bars/${id}`)
+  // let specialData = await barSpecials.json()
+  // setSpecials(specialData.specials)
 }
 
-const onChangeHandler = (e, setValue)=>{
-  setValue(e.target.value)
-}
+const onChangeHandler = (e, setValue) => {
+  const value = e.target.value;
+  setValue(value);
+};
 
 const handleSubmit = async (e) => {
   e.preventDefault();
@@ -41,6 +42,7 @@ const handleSubmit = async (e) => {
       days: daysState,
       details: detailsState
   };
+
   const options = {
 method: "POST", 
 headers: {
@@ -64,6 +66,7 @@ body: JSON.stringify(newSpecial)
         Days:<input type='text' value={daysState} name="days" onChange={(e) => onChangeHandler(e, setDaysState)}></input>
         
         Details:<input type='text' value={detailsState} name="details" onChange={(e) => onChangeHandler(e, setDetailsState)}></input>
+
         <input type="submit"></input>
       </form>
     </div>

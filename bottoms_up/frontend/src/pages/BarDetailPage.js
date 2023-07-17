@@ -10,7 +10,7 @@ const BarDetailPage = ({bar, setBar, index}) => {
     console.log(id)
 
     let[specials, setSpecials] = useState([])
-    let[special, setSpecial] = useState([])
+    // let[special, setSpecial] = useState([])
 
     console.log("specialState",specials)
 
@@ -24,9 +24,11 @@ const BarDetailPage = ({bar, setBar, index}) => {
         let response = await fetch(`/api/bars/${id}`)
         let data = await response.json()
         setBar(data)
-        let barSpecials = await fetch(`/api/bars/${id}`)
-        let specialData = await barSpecials.json()
-        setSpecials(specialData.specials)
+        // let barSpecials = await fetch(`/api/bars/${id}`)
+        // let specialData = await barSpecials.json()
+        // setSpecials(specialData.specials)
+        setSpecials(data.specials)
+
     }
 
     let specialList = specials.map((special, index)=>{
@@ -52,9 +54,9 @@ const BarDetailPage = ({bar, setBar, index}) => {
         <p>Loading specials...</p>
       )} */}
       {specialList}
-     <Link to={`/bars/${id}/specials/new`}><button>Add special</button></Link>
-     <Link to={`/bars/${id}/update`}><button>Update Bar Info</button></Link>
-     <Link to={`/bars`}><button>Back to List</button></Link>
+     <Link to={`/bars/${id}/specials/new`}> <a class="btn-floating btn-large waves-effect waves-light blue z-depth-5"><i class="material-icons">add</i></a></Link>
+     <Link to={`/bars/${id}/update`}><a class="btn-floating btn-large waves-effect waves-light blue z-depth-5"><i class="material-icons">edit</i></a></Link>
+     <Link to={`/bars`}><a class="btn-floating btn-large waves-effect waves-light blue z-depth-5"><i class="material-icons">arrow_back</i></a></Link>
     </div>
   );
 

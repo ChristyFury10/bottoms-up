@@ -18,6 +18,8 @@ function App() {
   let [bar, setBar] = useState([])
   let [bars, setBars] = useState([])
   let [specials, setSpecials] = useState([])
+  let [special, setSpecial] = useState("");
+
 
 
   routes = (
@@ -28,8 +30,8 @@ function App() {
       <Route path="/bars/:id/update" element={<BarUpdatePage bar={bar} setBar={setBar} bars={bars} setBars={setBars} specials={specials} setSpecials={setSpecials}/>}/>
       <Route path="/bars/:id" element={<BarDetailPage bar={bar} setBar={setBar} bars={bars} setBars={setBars}/>}/>
       <Route path="bars/:id/specials/new" element={<SpecialCreate bar={bar} setBar={setBar} specials={specials} setSpecials={setSpecials}/>}></Route>
-      <Route path="/bars/:bar_id/specials/:special_id" element={<SpecialView bar={bar} setBar={setBar}/>}></Route>
-      <Route path="/bars/:bar_id/specials/:special_id/update" element={<SpecialUpdate specials={specials} setSpecials={setSpecials}/>}></Route>
+      <Route path="/bars/:bar_id/specials/:special_id" element={<SpecialView bar={bar} setBar={setBar} special={special} setSpecial={setSpecial}/>}></Route>
+      <Route path="/bars/:bar_id/specials/:special_id/update" element={<SpecialUpdate special={special} setSpecial={setSpecial}/>}></Route>
     </Routes>
   )
 

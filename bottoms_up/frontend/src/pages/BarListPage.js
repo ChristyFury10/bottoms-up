@@ -33,8 +33,8 @@ const BarListPage = ({bars, setBars}) => {
                 </div>
             ))}
           </div>
-          <div>Map Will Go here
-            <MapComp></MapComp>
+          <div>
+            <MapComp bars={bars}></MapComp>
           </div>
         </div>
       <span>Want to add a bar that's not here yet?  </span>

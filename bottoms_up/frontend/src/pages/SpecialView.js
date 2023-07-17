@@ -4,10 +4,10 @@ import { Link, useParams } from 'react-router-dom';
 import specialItem from '../componenets/SpecialItem';
 import Header from '../componenets/Header';
 
-const SpecialView = ({bar, setBar, index}) => {
+const SpecialView = ({bar, setBar, index, special, setSpecial}) => {
 
     let {bar_id, special_id} = useParams();
-    let[special, setSpecial] = useState(null)
+    // let[special, setSpecial] = useState(null)
 
     useEffect(() =>{
         getBar()
@@ -34,6 +34,7 @@ const SpecialView = ({bar, setBar, index}) => {
           let barResponse = await fetch(`/api/bars/${bar_id}`);
           let barData = await barResponse.json();
           setBar(barData);
+          console.log(bar)
     
           if (barData.specials && barData.specials.length > 0) {
             let matchedSpecial = barData.specials.find(special => special.id === parseInt(special_id));
@@ -65,8 +66,8 @@ const SpecialView = ({bar, setBar, index}) => {
       {special.details} <br/>
 
 
-      <Link to={`/bars/${bar_id}/specials/${special_id}/update`}><button>Update this special</button></Link>
-      <button>Remove this special</button>
+      <Link to={`/bars/${bar_id}/specials/${special_id}/update`}><a class="btn-floating btn-large waves-effect waves-light blue z-depth-5"><i class="material-icons">edit</i></a></Link>
+      <a class="btn-floating btn-large waves-effect waves-light blue z-depth-5"><i class="material-icons">delete</i></a>
     </div>
   )
 }

@@ -7,10 +7,11 @@
 }
 .bar-item{
     text-align: center;
-    border: 0px !important
+    border-radius: 6px !important;
     
 }
 .main-list{
     display: flex;
+    width: 100vw;
 }
 #map { height: 180px; }

@@ -9,7 +9,6 @@ const BarUpdatePage = ({bar, setBar}) => {
     const navigate = useNavigate();
 
     let {id} = useParams();
-    console.log(id)
 
     let [nameState, setNameState] = useState("");
 	let [hoursState, setHoursState] = useState("");
@@ -20,7 +19,7 @@ const BarUpdatePage = ({bar, setBar}) => {
     useEffect(() =>{
         getBar()
 
-    }, [id])
+    }, [])
 
     
     let getBar = async () => {
@@ -72,10 +71,10 @@ const BarUpdatePage = ({bar, setBar}) => {
         setValue(e.target.value)
     }
 
-    let specialList = specials.map((special, index)=>{
-      return(<SpecialItem special={special}/>)
+    // let specialList = specials.map((special, index)=>{
+    //   return(<SpecialItem special={special}/>)
       
-    })
+    // })
 
   return (
     <div>
@@ -87,7 +86,7 @@ const BarUpdatePage = ({bar, setBar}) => {
             <br/>
         Hours:<input type="text" value={hoursState} name="name" placeholder="name" onChange={(e) => onChangeHandler(e, setHoursState)}></input>
         <br/>
-        Specials: {specialList}
+        {/* Specials: {specialList} */}
         {/* <label>
         <input type="checkbox" name="monday"/>
         <span>Monday</span>

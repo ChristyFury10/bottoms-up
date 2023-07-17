@@ -116,15 +116,15 @@ def createSpecial(request, pk):
     special = Special.objects.create(
         name=data["name"], 
         days=data["days"], 
-        details=["details"], 
+        details=data["details"], 
         bar=bar)
     serializer = SpecialSerializer(special, many=False)
     return Response(serializer.data)
 
 @api_view(['PUT'])
-def updateSpecial(request, special_id):
+def updateSpecial(request, bar_pk, special_pk):
     data = request.data
-    special = Special.objects.get(id=special_id)
+    special = Special.objects.get(id=special_pk)
     serializer = SpecialSerializer(instance=special, data=data)
 
     if serializer.is_valid():
