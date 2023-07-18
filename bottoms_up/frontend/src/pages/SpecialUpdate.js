@@ -29,7 +29,6 @@ const SpecialUpdate = ({special, setSpecial}) => {
     }, [])
     
     
-    
     let getBar = async () => {
       try {
         let barResponse = await fetch(`/api/bars/${bar_id}`);
@@ -43,10 +42,12 @@ const SpecialUpdate = ({special, setSpecial}) => {
           let matchedSpecial = barData.specials.find(special => special.id === parseInt(special_id));
           if (matchedSpecial) {
             setSpecial(matchedSpecial);
-            console.log(special)
-            setNameState(special.name);
-            setDaysState(special.days);
-            setDetailsState(special.details);
+            // console.log(special)
+            setNameState(specialForm.name);
+            setDaysState(specialForm.days);
+            setDetailsState(specialForm.details);
+            setSpecialForm(matchedSpecial)
+
           } else {
             console.log('Special not found.');
           }
@@ -57,8 +58,6 @@ const SpecialUpdate = ({special, setSpecial}) => {
         console.log('Error fetching data:', error);
       }
     };
-
-    
 
     if (!special || !bar) {
       return <p>Loading...</p>;
@@ -84,17 +83,18 @@ const SpecialUpdate = ({special, setSpecial}) => {
           details: specialForm.details
         };
         setSpecial(updatedSpecial)
+        
         // let updatedSpecial = await 
         const options = {
           method: "PUT",
           'headers': {
             "Content-type": 'application/json'
           },
-          body: JSON.stringify(special)
+          body: JSON.stringify(specialForm)
         }
         await fetch(`http://localhost:8000/api/bars/${bar_id}/specials/${special_id}/update`, options);
 
-        // navigate(`/bars/${bar_id}/specials/${special_id}`)
+        navigate(`/bars/${bar_id}/specials/${special_id}`)
     }
 
     return (
@@ -107,9 +107,9 @@ const SpecialUpdate = ({special, setSpecial}) => {
       <form onSubmit={handleSubmit}>
         Name: <input type='text' value={specialForm.name} name="name" onChange={onChangeHandler}></input>
         
-        Days:<input type='text' value={specialForm.days} name="days" placeholder={special.days} onChange={(e) => onChangeHandler(e, setDaysState)}></input>
+        Days:<input type='text' value={specialForm.days} name="days" placeholder={special.days} onChange={onChangeHandler}></input>
         
-        Details:<input type='text' value={specialForm.details} name="details" placeholder={special.details} onChange={(e) => onChangeHandler(e, setDetailsState)}></input>
+        Details:<input type='text' value={specialForm.details} name="details" placeholder={special.details} onChange={onChangeHandler}></input>
         <input type="submit"></input>
       </form>
     </div>

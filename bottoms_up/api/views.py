@@ -58,6 +58,12 @@ def getRoutes(request):
         'body': {'body': ""},
         'description': 'Creates an existing special with data sent in post request'
         },
+         {
+        'Endpoint': '/bars/bar_id/specials/special_id/delete',
+        'method': 'DELETE',
+        'body': None,
+        'description': 'deletes a special'
+        },
     ]
 
     return Response(routes)
@@ -140,3 +146,9 @@ def viewSpecial(request, bar_pk, special_pk):
     if serializer.is_valid():
        serializer.save()
     return Response(serializer.data) 
+
+@api_view(['DELETE'])
+def deleteSpecial(request, bar_pk, special_pk):
+    special = Special.objects.get(id=special_pk)
+    special.delete()
+    return Response("Special Deleted")
