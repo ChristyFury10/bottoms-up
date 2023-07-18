@@ -1,4 +1,17 @@
+
 #bars-list{
+    height: 600px;
+    overflow: auto;
+    &::-webkit-scrollbar {
+        width: 0.5em;
+        height: 0.5em;
+       }
+     
+       &::-webkit-scrollbar-thumb {
+        background-color: rgba(255,255,255,.1);
+        border-radius: 3px;
+     
+       }
     
 }
 #list-label{
@@ -7,11 +20,18 @@
 }
 .bar-item{
     text-align: center;
-    border-radius: 6px !important;
     
+}
+.collection{
+    border-radius: 6px;
 }
 .main-list{
     display: flex;
-    width: 100vw;
+    margin-left: 50px;
+    
 }
 #map { height: 180px; }
+
+.map-div{
+    margin-left: 50px;
+}

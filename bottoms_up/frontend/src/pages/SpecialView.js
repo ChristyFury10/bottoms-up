@@ -77,7 +77,8 @@ const SpecialView = ({bar, setBar, index, special, setSpecial}) => {
 
 
       <Link to={`/bars/${bar_id}/specials/${special_id}/update`}><a class="btn-floating btn-large waves-effect waves-light blue z-depth-5"><i class="material-icons">edit</i></a></Link>
-      <a class="btn-floating btn-large waves-effect waves-light blue z-depth-5" onClick={handleDelete}><i class="material-icons">delete</i></a>
+      <a class="btn-floating btn-large waves-effect waves-light red z-depth-5" onClick={handleDelete}><i class="material-icons">delete</i></a>
+      <Link to={`/bars/${bar_id}`}><a class="btn-floating btn-large waves-effect waves-light green z-depth-5"><i class="material-icons">arrow_back</i></a></Link>
     </div>
   )
 }

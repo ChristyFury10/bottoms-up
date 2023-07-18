@@ -1,7 +1,9 @@
 .header{
     text-align: center;
     display: flex;
-    justify-content: space-around;
+    flex-direction: row;
+ 
+    /* justify-content: space-around; */
     
 }
 #header-text{
@@ -11,7 +13,17 @@
 #logo-img{
     width: 200px;
     display: flex;
+   
 }
 .nav-bar{
     height: 150px;
+}
+.header-text-wrapper{
+    align-self: center;
+    display: flex;
+    margin:auto;
+}
+.nav-wrapper{
+    display: flex;
+    
 }

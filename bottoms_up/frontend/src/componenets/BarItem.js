@@ -13,7 +13,7 @@ const BarItem = ({bar}) => {
 
     <li class="collection-item avatar">
     <Link to={`/bars/${id}`}>
-      <img src="" alt="" className="circle"/>
+      <img src="https://png.pngtree.com/png-vector/20190527/ourmid/pngtree-beer-icon-png-image_1105732.jpg" alt="beer" className="circle"/>
       <span class="title">{bar.name}</span>
       <p>{bar.address}<br/>
          Open: {bar.hours}

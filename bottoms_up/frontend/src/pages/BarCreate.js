@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Header from '../componenets/Header';
 
 const BarCreate = ({bar, setBar}) => {
@@ -47,9 +47,11 @@ const BarCreate = ({bar, setBar}) => {
             <br/>
         Hours:<input type="text" value={hoursState} name="name" placeholder="name" onChange={(e) => onChangeHandler(e, setHoursState)}></input>
         <br/>
-        <input type="submit"></input>
-
+        <input type="submit" className='btn-floating btn-large waves-effect waves-light blue z-depth-5' value="ok"></input>
+        <Link to={`/bars`}><a class="btn-floating btn-large waves-effect waves-light green z-depth-5"><i class="material-icons">arrow_back</i></a></Link>
         </form>
+        
+         
     </div>
   )
 }

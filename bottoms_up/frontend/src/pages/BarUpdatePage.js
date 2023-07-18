@@ -117,8 +117,9 @@ const BarUpdatePage = ({bar, setBar}) => {
         </label> */}
         <br/>
         
-        <input type="submit"></input>
-        <button onClick={deleteBar}>Delete</button>
+        <input type="submit" className='btn-floating btn-large waves-effect waves-light blue z-depth-5' value="ok"></input>
+        <a class="btn-floating btn-large waves-effect waves-light red z-depth-5" onClick={deleteBar}><i class="material-icons">delete</i></a>
+
 
         <div></div>
         </form>

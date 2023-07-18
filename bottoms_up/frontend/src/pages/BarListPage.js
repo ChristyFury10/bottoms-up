@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import { Link } from 'react-router-dom'
 import BarItem from '../componenets/BarItem'
 import './BarListPage.css'
 import Header from '../componenets/Header'
@@ -33,12 +34,13 @@ const BarListPage = ({bars, setBars}) => {
                 </div>
             ))}
           </div>
-          <div>
+          <div className='map-div'>
             <MapComp bars={bars}></MapComp>
           </div>
         </div>
       <span>Want to add a bar that's not here yet?  </span>
-      <a href = "/#/bars/create"><button>Add Bar</button></a>
+      <Link to={`/bars/create`}><a class="btn-floating btn-large waves-effect waves-light blue z-depth-5"><i class="material-icons">add</i></a></Link>
+      
     </div>
   )
 }
