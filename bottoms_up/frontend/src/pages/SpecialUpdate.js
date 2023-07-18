@@ -92,7 +92,7 @@ const SpecialUpdate = ({special, setSpecial}) => {
           },
           body: JSON.stringify(specialForm)
         }
-        await fetch(`http://localhost:8000/api/bars/${bar_id}/specials/${special_id}/update`, options);
+        await fetch(`/api/bars/${bar_id}/specials/${special_id}/update`, options);
 
         navigate(`/bars/${bar_id}/specials/${special_id}`)
     }

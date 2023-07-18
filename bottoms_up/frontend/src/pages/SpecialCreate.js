@@ -50,7 +50,7 @@ headers: {
 },
 body: JSON.stringify(newSpecial)
 }
-  await fetch(`http://localhost:8000/api/bars/${id}/specials/new`, options)
+  await fetch(`/api/bars/${id}/specials/new`, options)
 
   navigate(`/bars/${id}`)
 

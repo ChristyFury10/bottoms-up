@@ -50,14 +50,14 @@ const BarUpdatePage = ({bar, setBar}) => {
 		}
         console.log("barState:", bar)
 
-        await fetch(`http://localhost:8000/api/bars/${id}/update`, options);
+        await fetch(`/api/bars/${id}/update`, options);
         
         navigate(`/bars/${id}`)
     
         
     }
     const deleteBar = async ()=>{
-            fetch(`http://localhost:8000/api/bars/${id}/delete`, {
+            fetch(`/api/bars/${id}/delete`, {
                 method: 'DELETE', 
                 'headers': {
                     'Content-Type' :'application/json'

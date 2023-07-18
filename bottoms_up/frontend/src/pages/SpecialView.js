@@ -57,7 +57,7 @@ const SpecialView = ({bar, setBar, index, special, setSpecial}) => {
           method: "DELETE",
         };
     
-        await fetch(`http://localhost:8000/api/bars/${bar_id}/specials/${special_id}/delete`, options);
+        await fetch(`/api/bars/${bar_id}/specials/${special_id}/delete`, options);
     
         navigate(`/bars/${bar_id}`);
       };

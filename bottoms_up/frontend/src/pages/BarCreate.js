@@ -24,7 +24,7 @@ const BarCreate = ({bar, setBar}) => {
 			},
 			body: JSON.stringify(newBar)
 		}
-        await fetch(`http://localhost:8000/api/bars/create`, options)
+        await fetch(`/api/bars/create`, options)
 
         // setBar(newBar)
         // createBar();
