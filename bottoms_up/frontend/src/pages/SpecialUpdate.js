@@ -31,10 +31,10 @@ const SpecialUpdate = ({special, setSpecial}) => {
     
     let getBar = async () => {
       try {
-        let barResponse = await fetch(`http://18.116.241.164:8000/api/bars/${bar_id}`);
+        let barResponse = await fetch(`/api/bars/${bar_id}`);
         let barData = await barResponse.json();
         setBar(barData);
-          let barSpecials = await fetch(`http://18.116.241.164:8000/api/bars/${bar_id}`)
+          let barSpecials = await fetch(`/api/bars/${bar_id}`)
           let specialData = await barSpecials.json()
           setSpecial(specialData.special)
         
@@ -92,7 +92,7 @@ const SpecialUpdate = ({special, setSpecial}) => {
           },
           body: JSON.stringify(specialForm)
         }
-        await fetch(`http://18.116.241.164:8000/api/bars/${bar_id}/specials/${special_id}/update`, options);
+        await fetch(`/api/bars/${bar_id}/specials/${special_id}/update`, options);
 
         navigate(`/bars/${bar_id}/specials/${special_id}`)
     }

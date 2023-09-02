@@ -22,7 +22,7 @@ const BarDetailPage = ({bar, setBar, index}) => {
 
     
     let getBar = async () => {
-        let response = await fetch(`http://18.116.241.164:8000/api/bars/${id}`)
+        let response = await fetch(`/api/bars/${id}`)
         let data = await response.json()
         setBar(data)
         // let barSpecials = await fetch(`/api/bars/${id}`)
