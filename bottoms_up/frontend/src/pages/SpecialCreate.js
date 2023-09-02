@@ -22,7 +22,7 @@ const SpecialCreate = ({bar, setBar}) => {
 }, [id])
 
 let getBar = async () => {
-  let response = await fetch(`/api/bars/${id}`)
+  let response = await fetch(`http://18.116.241.164:8000/api/bars/${id}`)
   let data = await response.json()
   setBar(data)
   // let barSpecials = await fetch(`/api/bars/${id}`)
@@ -50,7 +50,7 @@ headers: {
 },
 body: JSON.stringify(newSpecial)
 }
-  await fetch(`/api/bars/${id}/specials/new`, options)
+  await fetch(`http://18.116.241.164:8000/api/bars/${id}/specials/new`, options)
 
   navigate(`/bars/${id}`)
 
