@@ -14,7 +14,7 @@ const BarListPage = ({bars, setBars}) => {
     }, [])
 
     let getBars = async () => {
-        let response = await fetch('/api/bars')
+        let response = await fetch('http://18.116.241.164:8000/api/bars')
         let data =  await response.json()
         setBars(data)
 
