@@ -23,7 +23,7 @@ const BarUpdatePage = ({bar, setBar}) => {
 
     
     let getBar = async () => {
-        let response = await fetch(`/api/bars/${id}`)
+        let response = await fetch(`http://18.116.241.164:8000/api/bars/${id}`)
         let data = await response.json()
         setBar(data)
         const{name, address, hours, specials} = data
@@ -50,7 +50,7 @@ const BarUpdatePage = ({bar, setBar}) => {
 		}
         console.log("barState:", bar)
 
-        await fetch(`/api/bars/${id}/update`, options);
+        await fetch(`http://18.116.241.164:8000/api/bars/${id}/update`, options);
         
         navigate(`/bars/${id}`)
     
